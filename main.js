@@ -36,3 +36,27 @@ function checkTime(i) {
 document.addEventListener("DOMContentLoaded", function () {
   startTime();
 });
+
+const backToTopButton = document.getElementById("backToTop");
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (!backToTopButton) {
+    console.error("Back-to-Top button not found in the DOM.");
+    return;
+  }
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      backToTopButton.classList.add("show");
+    } else {
+      backToTopButton.classList.remove("show");
+    }
+  });
+
+  backToTopButton.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+});
