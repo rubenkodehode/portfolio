@@ -3,128 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Min Portefølje - Romstasjon</title>
     <link rel="stylesheet" href="style.css" />
     <script src="main.js" defer></script>
-    <title>Document</title>
   </head>
   <body>
-    <header class="head">
-      <h1>Ruben Tuft</h1>
-      <div id="clock"></div>
-      <div class="dropdown">
-        <div class="hamburger" onclick="dropButton()">
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
-        </div>
-        <div id="myDropdown" class="dropdown-content">
-          <a href="#pitch">Litt om meg</a>
-          <a href="#projects">Mine prosjekter</a>
-          <a href="#api">API seksjon</a>
-          <a href="#contact">Kontakt meg</a>
-        </div>
-      </div>
-    </header>
-    <main>
-      <div class="backgroundImage">
-        <div class="imageText">
-          <span class="border">Frontend utvikler</span>
+    <div class="space" id="space"></div>
+    <div class="station">
+      <div class="module" id="introModule">
+        <h2>Velkommen</h2>
+        <div class="expanded-content">
+          <p>
+            Jeg er en frontend-utvikler med lidenskap for å lage brukervennlige
+            nettsider.
+          </p>
         </div>
       </div>
 
-      <section class="sector" id="pitch">
-        <h2>Hvem er jeg?</h2>
-        <div class="sectorflex">
-          <img src="./images/pic.jpg" alt="me" />
-          <div class="text-content">
-            <p>
-              Mitt navn er Ruben og jeg er en halvveis utdannet front-end
-              utvikler. Jeg har kunnskap innen HTML/CSS, Javacript, React og
-              Figma. Jeg har også kjennskap til andre kodespråk som python og
-              java.
-            </p>
-
-            <p>
-              Jeg har gått 4 år på høyere utdanning hvor 3 av disse var
-              informatikk og det siste var et årsstudium På de 4 årene lærte jeg
-              meg all kunnskap innen HTML/CSS, Python, Java, JavaScript og
-              React. Jeg har også gått et år på folkehøyskole hvor jeg var så
-              vidt borti C#. på fritiden driver jeg og jobber litt med python og
-              java, for å friske opp hukommelsen i de språkene.
-            </p>
-
-            <p>
-              Til daglig driver jeg og spiller dataspill, leser meg opp på
-              geografi, jobber med og reparerer datamaskinen min om det trengs,
-              eller leser meg opp på generell trivia til quizzer
-            </p>
-
-            <p>
-              Jeg ser fram til en tid med nye utfordringer i en praksisplass
-              innen webutvikling, og er villig til å lære nye ting på veien
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <div class="projectImage">
-        <div class="imageText">
-          <span class="border">prosjekter</span>
+      <div class="module" id="projectModule1">
+        <h2>Prosjekt 1</h2>
+        <div class="expanded-content">
+          <p>
+            Prosjekt 1: Et spennende webprosjekt som bruker React og
+            API-integrasjon.
+          </p>
         </div>
       </div>
 
-      <section class="sector" id="projects">
-        <h2>text</h2>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam
-          adipisci fugit necessitatibus fugiat quisquam nobis, commodi tenetur
-          accusantium magni. Ad dolores eum accusantium facilis natus labore
-          reiciendis dolore, omnis sed? Repudiandae iure perferendis, laudantium
-          nisi ipsa facilis temporibus odit? Eius molestiae omnis delectus dicta
-          aliquam itaque rerum dolores nihil quod sint. Sunt magnam repellat
-          optio. Repudiandae dolorem impedit explicabo saepe.
-        </p>
-      </section>
-
-      <div class="apiImage">
-        <div class="imageText">
-          <span class="border">API</span>
+      <div class="module" id="projectModule2">
+        <h2>Prosjekt 2</h2>
+        <div class="expanded-content">
+          <p>Prosjekt 2: En interaktiv applikasjon for sanntidsdata.</p>
         </div>
       </div>
 
-      <section class="sector" id="api">
-        <h2>text</h2>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam
-          adipisci fugit necessitatibus fugiat quisquam nobis, commodi tenetur
-          accusantium magni. Ad dolores eum accusantium facilis natus labore
-          reiciendis dolore, omnis sed? Repudiandae iure perferendis, laudantium
-          nisi ipsa facilis temporibus odit? Eius molestiae omnis delectus dicta
-          aliquam itaque rerum dolores nihil quod sint. Sunt magnam repellat
-          optio. Repudiandae dolorem impedit explicabo saepe.
-        </p>
-      </section>
-
-      <div class="contactImage">
-        <div class="imageText">
-          <span class="border">Kontakt meg</span>
+      <div class="module" id="contactModule">
+        <h2>Kontakt</h2>
+        <div class="expanded-content">
+          <p>Fyll ut kontaktskjemaet for å komme i kontakt!</p>
         </div>
       </div>
-
-      <section class="sector" id="contact">
-        <h2>Kontakt meg her:</h2>
-      </section>
-    </main>
-    <button id="backToTop" class="back-to-top">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        fill="white"
-        viewBox="0 0 24 24">
-        <path
-          d="M12 2l-10 18h20l-10-18zm0 4.475l6.584 11.525h-13.168l6.584-11.525z" />
-      </svg>
-    </button>
+    </div>
   </body>
 </html>

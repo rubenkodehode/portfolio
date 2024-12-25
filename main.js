@@ -1,62 +1,68 @@
-function dropButton() {
-  document.getElementById("myDropdown").classList.toggle("show");
+// Velg space-elementet
+const space = document.getElementById("space");
 
-  // Toggle the hamburger animation
-  const hamburger = document.querySelector(".hamburger");
-  hamburger.classList.toggle("active");
+// Funksjon for å generere stjerner
+function createStar() {
+  const star = document.createElement("div");
+  star.classList.add("star");
+
+  // Tilfeldig plassering og størrelse
+  star.style.left = Math.random() * 100 + "vw";
+  star.style.top = Math.random() * 100 + "vh";
+  star.style.width = Math.random() * 3 + "px";
+  star.style.height = star.style.width;
+
+  // Animere stjernen
+  star.style.animationDuration = Math.random() * 10 + 5 + "s";
+  star.style.animationDelay = Math.random() * 10 + "s";
+
+  space.appendChild(star);
+
+  // Fjern stjernen etter animasjonen er ferdig
+  setTimeout(() => {
+    star.remove();
+  }, 15000);
 }
 
-window.onclick = function (event) {
-  if (!event.target.closest(".hamburger")) {
-    const dropdown = document.getElementById("myDropdown");
-    const hamburger = document.querySelector(".hamburger");
+// Generer stjerner kontinuerlig
+setInterval(createStar, 100);
 
-    if (dropdown.classList.contains("show")) {
-      dropdown.classList.remove("show");
-      hamburger.classList.remove("active");
-    }
-  }
-};
-
-function startTime() {
-  const today = new Date();
-  let h = today.getHours();
-  let m = today.getMinutes();
-  let s = today.getSeconds();
-  m = checkTime(m);
-  s = checkTime(s);
-  document.getElementById("clock").innerHTML = h + ":" + m + ":" + s;
-  setTimeout(startTime, 1000);
-}
-
-function checkTime(i) {
-  return i < 10 ? "0" + i : i;
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  startTime();
-});
-
-const backToTopButton = document.getElementById("backToTop");
-
-document.addEventListener("DOMContentLoaded", () => {
-  if (!backToTopButton) {
-    console.error("Back-to-Top button not found in the DOM.");
-    return;
+// CSS for stjernene
+const starStyle = document.createElement("style");
+starStyle.textContent = `
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 15s linear infinite;
   }
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 300) {
-      backToTopButton.classList.add("show");
-    } else {
-      backToTopButton.classList.remove("show");
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 0.5;
     }
-  });
+    50% {
+      opacity: 1;
+    }
+  }
+`;
+document.head.appendChild(starStyle);
 
-  backToTopButton.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
+// Velg alle modulene
+const modules = document.querySelectorAll(".module");
+
+// Legg til klikkhendelse på hver modul
+modules.forEach((module) => {
+  module.addEventListener("click", () => {
+    // Utvid eller lukk modulen som klikkes
+    module.classList.toggle("expanded");
+
+    // Lukk alle andre moduler når én utvides
+    modules.forEach((otherModule) => {
+      if (otherModule !== module) {
+        otherModule.classList.remove("expanded");
+      }
     });
   });
 });
