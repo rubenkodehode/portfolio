@@ -48,6 +48,28 @@ const modal = document.getElementById("modal");
 const modalBody = document.getElementById("modal-body");
 const closeModal = document.querySelector(".close");
 
+async function fetchPokemonData() {
+  try {
+    const randomId = Math.floor(Math.random() * 1010) + 1;
+
+    const response = await fetch(
+      ` https://pokeapi.co/api/v2/pokemon/${randomId}`
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return {
+      pokeName: data.name,
+      pokeTypes: data.types.map((typeInfo) => typeInfo.type.name),
+      pokePicture: data.sprites.front_default,
+    };
+  } catch (error) {
+    console.error("Error while fetching Pokémon-data:", error);
+    return null;
+  }
+}
+
 const content = {
   module1: `
     <h2>Hvem er jeg?</h2>
@@ -80,14 +102,31 @@ const content = {
     </ul>
   `,
   module4: `
-  <h2>API</h2>
-  <p>Sampletext</p>`,
+  `,
 };
 
 modules.forEach((module) => {
-  module.addEventListener("click", () => {
-    const id = module.id;
-    modalBody.innerHTML = content[id];
+  module.addEventListener("click", async () => {
+    if (module.id === "module4") {
+      const pokemon = await fetchPokemonData();
+
+      if (pokemon) {
+        modalBody.innerHTML = `
+        <h2>API</h2>
+        <p>Et eksempel på API kall ved bruk av PokéAPI</p>
+        <h4>Random Pokemon:</h4>
+        <h3>${pokemon.pokeName.toUpperCase()}</h3>
+        <img src="${pokemon.pokePicture}" alt="${
+          pokemon.pokeName
+        }" style="width: 150px; height: 150px; margin: 10px 0;">
+        <p><strong>Type:</Strong> ${pokemon.pokeTypes.join(", ")}</p>`;
+      } else {
+        modalBody.innerHTML = `<p>Could not fetch Pokémon data. Try again.</p>`;
+      }
+    } else {
+      modalBody.innerHTML =
+        content[module.id] || `<p>No content accessable for this module`;
+    }
     modal.style.display = "block";
   });
 });
