@@ -133,6 +133,51 @@ body {
   display: inline-block;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+  .station {
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .module {
+    width: 150px;
+    height: 120px;
+    font-size: 1rem;
+  }
+
+  .footer {
+    font-size: 0.9rem;
+    padding: 8px 0;
+  }
+
+  img {
+    max-width: 80%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .module {
+    width: 120px;
+    height: 100px;
+    font-size: 0.9rem;
+  }
+
+  .footer {
+    font-size: 0.8rem;
+  }
+
+  img {
+    max-width: 60%;
+  }
+}
+
 @keyframes float {
   0%,
   100% {
