@@ -3,25 +3,92 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="shortcut icon" href="./images/rocket.png" type="image/x-icon" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
     <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      rel="stylesheet"
-    />
-    <script src="main.js" defer></script>
+    <script defer src="main.js" defer></script>
   </head>
   <body>
+    <!-- Starry Background -->
     <div class="space" id="space"></div>
-    <div class="station">
-      <div class="module" id="module1">Om Meg</div>
-      <div class="module" id="module2">Prosjekt 1</div>
-      <div class="module" id="module3">Prosjekt 2</div>
-      <div class="module" id="module4">API</div>
-    </div>
 
-    <!-- Modal -->
+    <header class="header">
+      <div class="logo">My Portfolio</div>
+      <nav class="nav">
+        <ul>
+          <li><a href="#about-me">About Me</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#api-demo">API Example</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about-me" class="section">
+      <h2>Hvem er jeg?</h2>
+      <p>
+        Mitt navn er Ruben og jeg er en halvveis utdannet front-end utvikler.
+        Jeg har kunnskap innen HTML/CSS, Javacript, React og Figma. Jeg har også
+        kjennskap til andre kodespråk som python og java.
+      </p>
+      <p>
+        Jeg har gått 4 år på høyere utdanning hvor 3 av disse var informatikk og
+        det siste var et årsstudium. På de 4 årene lærte jeg meg all kunnskap
+        innen HTML/CSS, Python, Java, JavaScript og React. Jeg har også gått et
+        år på folkehøyskole hvor jeg var så vidt borti C#. på fritiden driver
+        jeg og jobber litt med python og java, for å friske opp hukommelsen i de
+        språkene.
+      </p>
+      <p>
+        Til daglig driver jeg og spiller dataspill, leser meg opp på geografi,
+        jobber med og reparerer datamaskinen min om det trengs, eller leser meg
+        opp på generell trivia til quizzer.
+      </p>
+      <p>
+        Jeg ser fram til en tid med nye utfordringer i en praksisplass innen
+        webutvikling, og er villig til å lære nye ting på veien.
+      </p>
+      <img
+        src="./images/pic.jpg"
+        alt="me"
+        style="
+          justify-content: center;
+          border-radius: 100%;
+          border: solid 5px rgba(0, 255, 255, 0.5);
+        " />
+      <p>
+        Vil du vite mer? trykk
+        <a href="https://example.com" target="_blank" style="color: #0affff"
+          >her</a
+        >!
+      </p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <h2>My Projects</h2>
+      <div class="projects-container">
+        <div class="project module" id="project1">Restaurant Meny</div>
+        <div class="project module" id="project2">DrumKit</div>
+      </div>
+      <p>
+        Vil du se mer? trykk
+        <a href="https://example.com" target="_blank" style="color: #0affff"
+          >her</a
+        >!
+      </p>
+    </section>
+
+    <section id="api-demo" class="section">
+      <h2>API Example</h2>
+      <button id="fetch-pokemon">Fetch Pokémon</button>
+      <div id="pokemon-display"></div>
+    </section>
+
     <div id="modal" class="modal">
       <div class="modal-content">
         <span class="close">&times;</span>
@@ -29,7 +96,8 @@
       </div>
     </div>
 
-    <footer class="footer">
+    <!-- Footer -->
+    <footer id="contact" class="footer">
       <p>ta kontakt med meg her:</p>
       <a href="https://linkedin.com" target="_blank" class="icon">
         <i class="fab fa-linkedin"></i>
